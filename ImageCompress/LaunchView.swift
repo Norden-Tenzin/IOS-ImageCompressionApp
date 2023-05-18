@@ -25,7 +25,8 @@ struct LaunchView: View {
     @State private var isFinished = false
     @State private var isCompressRunning = false
     @State private var isShowingDetailView = false
-    @State private var showingAlert = false
+    @State private var saveAlert = false
+    @State private var resetAlert = false
 //  Picker
     @State private var selectedOption: Int = 1
 
@@ -143,7 +144,7 @@ struct LaunchView: View {
                                 }.disabled(isCompressRunning)
                             } else {
                                 Button(role: .destructive) {
-                                    reset()
+                                    resetAlert = true
                                 } label: {
                                     Text("Reset Selection")
                                 }
@@ -213,7 +214,7 @@ struct LaunchView: View {
                                         imageSaver.writeToPhotoAlbum(image: image.image)
                                     }
                                 }
-                                showingAlert = true
+                                saveAlert = true
                                 reset()
                             } label: {
                                 Text("Save All (\(imagePicker.images.filter { image in image.isDisabled == false }.count))")
@@ -236,8 +237,13 @@ struct LaunchView: View {
                     }
                 }
             }
-                .alert("(\(imagePicker.images.filter { image in image.isDisabled == false }.count)) Images Saved ", isPresented: $showingAlert) {
+                .alert("(\(imagePicker.images.filter { image in image.isDisabled == false }.count)) Images Saved ", isPresented: $saveAlert) {
                 Button("OK", role: .cancel) { }
+            }
+                .alert("Are you sure you want to reset the images?", isPresented: $resetAlert) {
+                Button("Confirm", role: .cancel) {
+                    reset()
+                }
             }
                 .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
