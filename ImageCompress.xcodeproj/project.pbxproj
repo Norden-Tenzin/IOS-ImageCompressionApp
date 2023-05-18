@@ -7,18 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		654484FD2A090E4A00F21414 /* wedge2.0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 654484FC2A090E4A00F21414 /* wedge2.0.gif */; };
 		654EA61229EAD21B00D27B21 /* ImageCompressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */; };
-		654EA61429EAD21B00D27B21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA61329EAD21B00D27B21 /* ContentView.swift */; };
 		654EA61629EAD21B00D27B21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654EA61529EAD21B00D27B21 /* Assets.xcassets */; };
 		654EA61929EAD21B00D27B21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */; };
+		654EA62529EADB0E00D27B21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654EA62429EADB0E00D27B21 /* LaunchScreen.storyboard */; };
+		654EA62729EADD9900D27B21 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA62629EADD9900D27B21 /* LaunchView.swift */; };
+		654EA62D29ED080000D27B21 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA62C29ED080000D27B21 /* ImagePicker.swift */; };
+		65E02A3A2A15E39E00FD894E /* Giffy in Frameworks */ = {isa = PBXBuildFile; productRef = 65E02A392A15E39E00FD894E /* Giffy */; };
+		65E02A3C2A1645E400FD894E /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E02A3B2A1645E400FD894E /* ImageCell.swift */; };
+		65E02A3E2A16464F00FD894E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E02A3D2A16464F00FD894E /* Helper.swift */; };
+		65E02A402A16467800FD894E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E02A3F2A16467800FD894E /* Extension.swift */; };
+		65E02A422A16483B00FD894E /* UploadPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E02A412A16483B00FD894E /* UploadPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		654484FC2A090E4A00F21414 /* wedge2.0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wedge2.0.gif; sourceTree = "<group>"; };
 		654EA60E29EAD21B00D27B21 /* ImageCompress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCompress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompressApp.swift; sourceTree = "<group>"; };
-		654EA61329EAD21B00D27B21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		654EA61529EAD21B00D27B21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		654EA62429EADB0E00D27B21 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		654EA62629EADD9900D27B21 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		654EA62C29ED080000D27B21 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		65C73CDF29EE9D1A00B0FCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		65E02A362A13B76000FD894E /* Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		65E02A372A13B78800FD894E /* Helper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Helper-Bridging-Header.h"; sourceTree = "<group>"; };
+		65E02A3B2A1645E400FD894E /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		65E02A3D2A16464F00FD894E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		65E02A3F2A16467800FD894E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		65E02A412A16483B00FD894E /* UploadPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E02A3A2A15E39E00FD894E /* Giffy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +56,8 @@
 			children = (
 				654EA61029EAD21B00D27B21 /* ImageCompress */,
 				654EA60F29EAD21B00D27B21 /* Products */,
+				92357A0A6CA6A2C937A623E6 /* Pods */,
+				65E02A382A15E39E00FD894E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +72,18 @@
 		654EA61029EAD21B00D27B21 /* ImageCompress */ = {
 			isa = PBXGroup;
 			children = (
+				65C73CDF29EE9D1A00B0FCE0 /* Info.plist */,
+				654484FC2A090E4A00F21414 /* wedge2.0.gif */,
 				654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */,
-				654EA61329EAD21B00D27B21 /* ContentView.swift */,
+				654EA62629EADD9900D27B21 /* LaunchView.swift */,
+				65E02A412A16483B00FD894E /* UploadPage.swift */,
+				65E02A3F2A16467800FD894E /* Extension.swift */,
+				65E02A3D2A16464F00FD894E /* Helper.swift */,
+				65E02A3B2A1645E400FD894E /* ImageCell.swift */,
+				654EA62C29ED080000D27B21 /* ImagePicker.swift */,
+				65E02A372A13B78800FD894E /* Helper-Bridging-Header.h */,
+				65E02A362A13B76000FD894E /* Helper.h */,
+				654EA62429EADB0E00D27B21 /* LaunchScreen.storyboard */,
 				654EA61529EAD21B00D27B21 /* Assets.xcassets */,
 				654EA61729EAD21B00D27B21 /* Preview Content */,
 			);
@@ -65,6 +96,20 @@
 				654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		65E02A382A15E39E00FD894E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92357A0A6CA6A2C937A623E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +128,9 @@
 			dependencies = (
 			);
 			name = ImageCompress;
+			packageProductDependencies = (
+				65E02A392A15E39E00FD894E /* Giffy */,
+			);
 			productName = ImageCompress;
 			productReference = 654EA60E29EAD21B00D27B21 /* ImageCompress.app */;
 			productType = "com.apple.product-type.application";
@@ -99,6 +147,7 @@
 				TargetAttributes = {
 					654EA60D29EAD21B00D27B21 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -111,6 +160,9 @@
 				Base,
 			);
 			mainGroup = 654EA60529EAD21B00D27B21;
+			packageReferences = (
+				657092BF2A0903F800603513 /* XCRemoteSwiftPackageReference "Giffy" */,
+			);
 			productRefGroup = 654EA60F29EAD21B00D27B21 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +177,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654EA62529EADB0E00D27B21 /* LaunchScreen.storyboard in Resources */,
 				654EA61929EAD21B00D27B21 /* Preview Assets.xcassets in Resources */,
 				654EA61629EAD21B00D27B21 /* Assets.xcassets in Resources */,
+				654484FD2A090E4A00F21414 /* wedge2.0.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +191,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				654EA61429EAD21B00D27B21 /* ContentView.swift in Sources */,
+				65E02A422A16483B00FD894E /* UploadPage.swift in Sources */,
+				654EA62D29ED080000D27B21 /* ImagePicker.swift in Sources */,
+				65E02A3C2A1645E400FD894E /* ImageCell.swift in Sources */,
+				65E02A3E2A16464F00FD894E /* Helper.swift in Sources */,
+				65E02A402A16467800FD894E /* Extension.swift in Sources */,
+				654EA62729EADD9900D27B21 /* LaunchView.swift in Sources */,
 				654EA61229EAD21B00D27B21 /* ImageCompressApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +254,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -264,14 +323,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageCompress/Preview Content\"";
+				DEVELOPMENT_TEAM = 32HF9PB4HP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageCompress/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = ImageCompress;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -282,6 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.norden.ImageCompress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,14 +358,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageCompress/Preview Content\"";
+				DEVELOPMENT_TEAM = 32HF9PB4HP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageCompress/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = ImageCompress;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -337,6 +409,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		657092BF2A0903F800603513 /* XCRemoteSwiftPackageReference "Giffy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tfmart/Giffy.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		65E02A392A15E39E00FD894E /* Giffy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 657092BF2A0903F800603513 /* XCRemoteSwiftPackageReference "Giffy" */;
+			productName = Giffy;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 654EA60629EAD21B00D27B21 /* Project object */;
 }

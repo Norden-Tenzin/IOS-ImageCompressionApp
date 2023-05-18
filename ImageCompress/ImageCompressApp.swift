@@ -11,7 +11,7 @@ import SwiftUI
 struct ImageCompressApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchView()
         }
     }
 }
