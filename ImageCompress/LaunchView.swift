@@ -43,6 +43,7 @@ struct LaunchView: View {
         print("targetSize \(targetSize * 1024 * 1024)")
         return imageData.count > (targetSize * 1024 * 1024) ? nil : imageData
     }
+    
     func compressImage_my(image: ImageData, targetSize: Int) {
         var currSize: Double = image.imageSize
         var currImage: UIImage = image.image
@@ -77,8 +78,9 @@ struct LaunchView: View {
             compressionQuality -= 0.1
         }
         print("ran at \(getSizeMb(data: imageData!)) : \(Double(targetSize))")
-        return ImageData(image: image.image, imageSize: image.imageSize, imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+        return ImageData(image: UIImage(data: imageData!)!, imageSize: getSizeMb(data: imageData!), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
     }
+    
     func compressImages(targetSize: Int) {
         isCompressRunning = true
         for (index, _) in imagePicker.images.enumerated() {
