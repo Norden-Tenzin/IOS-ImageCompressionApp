@@ -43,7 +43,7 @@ struct LaunchView: View {
         print("targetSize \(targetSize * 1024 * 1024)")
         return imageData.count > (targetSize * 1024 * 1024) ? nil : imageData
     }
-    
+
     func compressImage_my(image: ImageData, targetSize: Int) {
         var currSize: Double = image.imageSize
         var currImage: UIImage = image.image
@@ -80,7 +80,32 @@ struct LaunchView: View {
         print("ran at \(getSizeMb(data: imageData!)) : \(Double(targetSize))")
         return ImageData(image: UIImage(data: imageData!)!, imageSize: getSizeMb(data: imageData!), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
     }
-    
+
+    func compressImage_2(image: ImageData, targetSize: Int) -> ImageData {
+        func mb_to_kb(targetSize: Int) -> Int {
+            print("targetSize: \(targetSize * 1024)")
+            return targetSize * 1024
+        }
+        let uiImage = image.image
+        let imageData = uiImage.compress(to: targetSize)
+        print("ran at \(getSizeMb(data: imageData)) : \(Double(targetSize))")
+        return ImageData(image: UIImage(data: imageData)!, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+    }
+
+    func compressImage_3(image: ImageData, targetSize: Int) -> ImageData {
+        let uiImage = image.image
+        let imageData = uiImage.resizeToApprox(sizeInMB: Double(targetSize))
+        print("ran at \(getSizeMb(data: imageData)) : \(Double(targetSize))")
+        return ImageData(image: UIImage(data: imageData)!, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+    }
+
+    func compressImage_4(image: ImageData, targetSize: Int) -> ImageData {
+        let uiImage = image.image
+        let imageData = uiImage.resizeByByte(maxMb: targetSize);
+        print("ran at \(getSizeMb(data: imageData)) : \(Double(targetSize))")
+        return ImageData(image: UIImage(data: imageData)!, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+    }
+
     func compressImages(targetSize: Int) {
         isCompressRunning = true
         for (index, _) in imagePicker.images.enumerated() {
@@ -99,7 +124,7 @@ struct LaunchView: View {
                         imagePicker.images[index] = ImageData(image: temp.image, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: false, isDisabled: temp.isDisabled)
                     }
                 } else {
-                    let compressedImage: ImageData = compressImage_1(image: image, targetSize: targetSize)
+                    let compressedImage: ImageData = compressImage_2(image: image, targetSize: targetSize)
                     DispatchQueue.main.async {
                         imagePicker.images[index] = compressedImage
                     }
@@ -163,8 +188,8 @@ struct LaunchView: View {
                                                 disable(index: index)
                                                 print("new opacity: \(imagePicker.images[index].isDisabled)")
                                             } label: {
-                                                Text("Disable")
-                                            }
+                                                Text("Enable")
+                                            }.tint(.green)
                                         })
                                     } else {
                                         ImageCell(imageData: imagePicker.images[index])
@@ -239,7 +264,7 @@ struct LaunchView: View {
                     }
                 }
             }
-                .alert("(\(imagePicker.images.filter { image in image.isDisabled == false }.count)) Images Saved ", isPresented: $saveAlert) {
+                .alert("Images Saved ", isPresented: $saveAlert) {
                 Button("OK", role: .cancel) { }
             }
                 .alert("Are you sure you want to reset the images?", isPresented: $resetAlert) {
@@ -323,7 +348,6 @@ struct LaunchView: View {
                             .presentationDetents([.height(600)])
                     }
                 }
-
             }
                 .conditionalModifier(colorScheme == .light, LightBorder(width: 2, edges: [.top]), DarkBorder(width: 2, edges: [.top]))
                 .ignoresSafeArea(.container, edges: .bottom)

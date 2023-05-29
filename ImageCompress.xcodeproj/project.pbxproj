@@ -11,7 +11,6 @@
 		654EA61229EAD21B00D27B21 /* ImageCompressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */; };
 		654EA61629EAD21B00D27B21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654EA61529EAD21B00D27B21 /* Assets.xcassets */; };
 		654EA61929EAD21B00D27B21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */; };
-		654EA62529EADB0E00D27B21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654EA62429EADB0E00D27B21 /* LaunchScreen.storyboard */; };
 		654EA62729EADD9900D27B21 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA62629EADD9900D27B21 /* LaunchView.swift */; };
 		654EA62D29ED080000D27B21 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA62C29ED080000D27B21 /* ImagePicker.swift */; };
 		65E02A3A2A15E39E00FD894E /* Giffy in Frameworks */ = {isa = PBXBuildFile; productRef = 65E02A392A15E39E00FD894E /* Giffy */; };
@@ -27,7 +26,6 @@
 		654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompressApp.swift; sourceTree = "<group>"; };
 		654EA61529EAD21B00D27B21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		654EA62429EADB0E00D27B21 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		654EA62629EADD9900D27B21 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		654EA62C29ED080000D27B21 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		65C73CDF29EE9D1A00B0FCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 				654EA62C29ED080000D27B21 /* ImagePicker.swift */,
 				65E02A372A13B78800FD894E /* Helper-Bridging-Header.h */,
 				65E02A362A13B76000FD894E /* Helper.h */,
-				654EA62429EADB0E00D27B21 /* LaunchScreen.storyboard */,
 				654EA61529EAD21B00D27B21 /* Assets.xcassets */,
 				654EA61729EAD21B00D27B21 /* Preview Content */,
 			);
@@ -177,7 +174,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				654EA62529EADB0E00D27B21 /* LaunchScreen.storyboard in Resources */,
 				654EA61929EAD21B00D27B21 /* Preview Assets.xcassets in Resources */,
 				654EA61629EAD21B00D27B21 /* Assets.xcassets in Resources */,
 				654484FD2A090E4A00F21414 /* wedge2.0.gif in Resources */,

@@ -10,10 +10,17 @@ import PhotosUI
 import SwiftUI
 
 struct UploadPage: View {
+//  Environment Variable
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var imagePicker: ImagePicker
     var body: some View {
         VStack (alignment: .center) {
             Spacer()
+            if (colorScheme == .light) {
+                Image("default_img_black")
+            } else {
+                Image("default_img_white")
+            }
             Text("Welcome to PicPac")
                 .font(.title)
                 .fontWeight(.bold)
@@ -38,7 +45,7 @@ struct UploadPage: View {
                     .cornerRadius(20)
                     .padding(.horizontal, 20)
             }.padding(.bottom, 40)
-            Spacer()
+            Spacer(minLength: 250)
         }
     }
 }
