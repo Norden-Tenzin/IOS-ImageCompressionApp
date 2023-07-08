@@ -15,11 +15,9 @@ class ImageSaver: NSObject {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
     }
     @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        print("Save finished!")
+//        print("Save finished!")
     }
 }
-
-
 
 struct EdgeBorder: Shape {
     var width: CGFloat
@@ -95,6 +93,35 @@ struct DarkBorder: ViewModifier {
 }
 
 extension UIImage {
+    func scalePreservingAspectRatio(width: Int, height: Int) -> UIImage {
+        let widthRatio = CGFloat(width) / size.width
+        let heightRatio = CGFloat(height) / size.height
+
+        let scaleFactor = min(widthRatio, heightRatio)
+
+        let scaledImageSize = CGSize(
+            width: size.width * scaleFactor,
+            height: size.height * scaleFactor
+        )
+
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+
+        let renderer = UIGraphicsImageRenderer(
+            size: scaledImageSize,
+            format: format
+        )
+
+        let scaledImage = renderer.image { _ in
+            self.draw(in: CGRect(
+                origin: .zero,
+                size: scaledImageSize
+                ))
+        }
+
+        return scaledImage
+    }
+
     func resized(withPercentage percentage: CGFloat, isOpaque: Bool = true) -> UIImage? {
         let canvas = CGSize(width: size.width * percentage, height: size.height * percentage)
         let format = imageRendererFormat
@@ -104,8 +131,8 @@ extension UIImage {
         }
     }
 
-    func compress(to mb: Int, allowedMargin: CGFloat = 0.2) -> Data {
-        let bytes = mb * 1024 * 1024
+    func compress(to mb: Double, allowedMargin: CGFloat = 0.2) -> Data {
+        let bytes = Int(mb * 1024 * 1024)
         var compression: CGFloat = 1.0
         let step: CGFloat = 0.05
         var holderImage = self
@@ -113,7 +140,7 @@ extension UIImage {
         while(!complete) {
             if let data = holderImage.jpegData(compressionQuality: 1.0) {
                 let ratio = data.count / bytes
-                print("ratio: \(ratio)")
+//                print("ratio: \(ratio)")
                 if data.count < bytes {
                     complete = true
                     return data
@@ -123,7 +150,7 @@ extension UIImage {
                 }
             }
             guard let newImage = holderImage.resized(withPercentage: compression) else {
-                print("BROKE");
+//                print("BROKE");
                 break;
             }
             holderImage = newImage
@@ -148,16 +175,16 @@ extension UIImage {
         while (true) {
             i += 1
             if (i > 13) {
-                print("Compression ran too many times ") // ideally max should be 7 times as  log(base 2) 100 = 6.6
+//                print("Compression ran too many times ") // ideally max should be 7 times as  log(base 2) 100 = 6.6
                 break
             }
-            print("mid = \(mid)")
+//            print("mid = \(mid)")
             if ((newResImage?.count)! < (allowedSizeInBytes - deltaInBytes)) {
                 left = mid
             } else if ((newResImage?.count)! > (allowedSizeInBytes + deltaInBytes)) {
                 right = mid
             } else {
-                print("loop ran \(i) times")
+//                print("loop ran \(i) times")
                 return newResImage!
             }
             mid = (left + right) / 2.0
@@ -168,7 +195,7 @@ extension UIImage {
 
     func resizeByByte(maxMb: Int) -> Data {
         var compressQuality: CGFloat = 1
-        var maxByte = maxMb * 1024 * 1024
+        let maxByte = maxMb * 1024 * 1024
         var imageData = Data()
         var imageByte = self.jpegData(compressionQuality: 1)?.count
         while imageByte! > maxByte {

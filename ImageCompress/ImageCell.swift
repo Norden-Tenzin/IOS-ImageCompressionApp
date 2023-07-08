@@ -8,44 +8,51 @@
 import Foundation
 import PhotosUI
 import SwiftUI
-import Giffy
 
 struct ImageCell: View {
+//    Environment Variables
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var imageData: ImageData
     var body: some View {
-        HStack (alignment: .top) {
+        HStack (alignment: .top, spacing: 0) {
             if (imageData.isLoading) {
                 ZStack {
                     Image(uiImage: imageData.image)
                         .resizable()
-                        .clipped()
-                    Rectangle().foregroundColor(.black)
-                        .opacity(0.8)
-                    Circle()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(Color(.black))
-                        .opacity(0.6)
-                    Giffy("wedge2.0")
+                    if (colorScheme == .light) {
+                        Rectangle().foregroundColor(.white)
+                            .opacity(0.25)
+                    } else {
+                        Rectangle().foregroundColor(.black)
+                            .opacity(0.25)
+                    }
+                    ProgressView().scaleEffect(x: 1.25, y: 1.25, anchor: .center)
                 }
-                    .aspectRatio(16 / 9, contentMode: .fit)
-                    .frame(height: 85)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 120, height: 120)
+                    .clipped()
             } else {
                 Image(uiImage: imageData.image)
                     .resizable()
-                    .aspectRatio(16 / 9, contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 120, height: 120)
                     .clipped()
-                    .frame(
-                    height: 85,
-                    alignment: .leading
-                )
             }
-            VStack(alignment: .leading) {
-                Text("ImageName")
-                Text(imageData.imageType)
-                Text(String(format: "%.1fmb", imageData.imageSize))
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
+                    Text("format")
+                    Spacer()
+                    Text(".\(imageData.imageType)")
+                }
+                HStack {
+                    Text("size")
+                    Spacer()
+                    Text(String(format: "%.1fmb", imageData.imageSize))
+                }
             }
-                .padding(.leading)
-            Spacer()
+                .font(.system(size: 18, weight: .light))
+                .padding(.init(top: 2, leading: 10, bottom: 0, trailing: 0))
         }
+            .listRowBackground(Color("background"))
     }
 }

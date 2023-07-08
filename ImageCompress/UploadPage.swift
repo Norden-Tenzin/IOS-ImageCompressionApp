@@ -50,8 +50,9 @@ struct UploadPage: View {
     }
 }
 
-struct Upload_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadPage(imagePicker: ImagePicker())
-    }
-}
+//
+//struct Upload_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UploadPage(imagePicker: ImagePicker())
+//    }
+//}

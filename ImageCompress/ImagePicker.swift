@@ -43,8 +43,13 @@ class ImageData: ObservableObject, Identifiable {
     func copy(with zone: NSZone? = nil) -> ImageData {
         return ImageData(image: image, imageSize: imageSize, imageType: imageType)
     }
+
+    func stringInfo() -> String {
+        return "imageSize: \(imageSize), imageType: \(imageType), isLoading: \(isLoading)"
+    }
+
     func printInfo() {
-        print("imageSize: \(imageSize), imageType: \(imageType), isLoading: \(isLoading)")
+        print(stringInfo())
     }
 }
 
@@ -55,7 +60,7 @@ class ImagePicker: ObservableObject {
         didSet {
             Task {
                 if !imageSelections.isEmpty {
-                    print("HERE")
+//                    print("HERE")
                     try await loadTransferable(from: imageSelections)
                 } else {
                     self.images = []
@@ -64,22 +69,48 @@ class ImagePicker: ObservableObject {
         }
     }
 
+    func updateImages(at index: Int, with newImageData: ImageData) {
+        images[index] = newImageData
+    }
+
     func loadTransferable(from imageSelection: [PhotosPickerItem]) async throws {
         do {
             self.images = []
-            print(imageSelections.count)
             for imageSelection in imageSelections {
                 if let data = try await imageSelection.loadTransferable(type: Data.self) {
                     if let uiImage = UIImage(data: data) {
-                        self.images.append(ImageData(image: uiImage, imageSize: getSizeMb(data: data), imageType: ImageFormat.get(from: data).rawValue))
+                        self.images = self.images + [ImageData(image: uiImage, imageSize: getSizeMb(data: data), imageType: ImageFormat.get(from: data).rawValue)]
+//                        self.images.append(ImageData(image: uiImage, imageSize: getSizeMb(data: data), imageType: ImageFormat.get(from: data).rawValue))
                     }
                 }
             }
+//            self.printImages()
         }
     }
+
     func reset() {
         self.images = []
         self.imageSelections = []
+    }
+
+    func printImages() {
+        if images.count != 0 {
+            for image in images {
+                image.printInfo()
+            }
+        }
+    }
+
+    func stringImages() -> String {
+        if images.count == 0 {
+            return "IMAGES EMPTY"
+        } else {
+            var res = ""
+            for image in images {
+                res += image.stringInfo() + "\n"
+            }
+            return res
+        }
     }
 }
 
