@@ -33,18 +33,17 @@ struct SettingsSheet: View {
                 .padding([.leading, .trailing, .top])
             HStack {
                 Text("Set approx export size")
-                    .font(.system(size: 18))
                     .frame(maxWidth: 150, alignment: .leading)
                 Spacer()
                 Picker(selection: $selectedOption, label: Text("Select Format")) {
                     ForEach([0.5, 0.6, 0.7, 0.8, 0.9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], id: \.self) { number in
-                        let decimalFormat = String(format: "%.1f", number)
-                        if number.truncatingRemainder(dividingBy: 1) == 0 {
-                            Text("< \(Int(number)) mb")
+//                        let decimalFormat = String(format: "%.1f", number)
+                        if number < 1 {
+                            Text("< \(Int(number * 1000)) kb")
                         } else {
-                            Text("< \(decimalFormat) mb")
+                            Text("< \(Int(number)) mb")
                         }
-                    }.font(.system(size: 18))
+                    }.font(.system(size: 15))
                 }
                     .onAppear {
                     selectedOption = exportSize
@@ -52,6 +51,7 @@ struct SettingsSheet: View {
                     .frame(maxWidth: 120, maxHeight: 150)
                     .pickerStyle(WheelPickerStyle())
             }
+                .font(.system(size: 16))
                 .padding([.leading])
                 .background(Color("section-color"))
                 .cornerRadius(8)
@@ -63,6 +63,7 @@ struct SettingsSheet: View {
                 Text(".jpg")
                     .padding(.trailing, 25)
             }
+                .font(.system(size: 16))
                 .padding()
                 .background(Color("section-color"))
                 .cornerRadius(8)

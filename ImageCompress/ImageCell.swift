@@ -47,7 +47,11 @@ struct ImageCell: View {
                 HStack {
                     Text("size")
                     Spacer()
-                    Text(String(format: "%.1fmb", imageData.imageSize))
+                    if imageData.imageSize < 1 {
+                        Text("\(Int(imageData.imageSize * 1024)) kb")
+                    } else {
+                        Text("\(String(format: "%.1f", imageData.imageSize)) mb")
+                    }
                 }
             }
                 .font(.system(size: 18, weight: .light))

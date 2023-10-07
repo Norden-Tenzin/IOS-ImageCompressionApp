@@ -89,7 +89,6 @@ struct ImageCompressionPage: View {
                     .listStyle(.plain)
                     .navigationViewStyle(StackNavigationViewStyle())
             }
-
             if (!isFinished) {
                 Button {
                     isActive = false
@@ -105,22 +104,12 @@ struct ImageCompressionPage: View {
                         .cornerRadius(20)
                         .padding(.horizontal, 20)
                 }
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 30)
                     .disabled(!isActive)
             } else {
                 Button {
-                    if (imagePicker.images.filter { image in image.isDisabled == false }.count == 0) {
-                        allDisabledAlert = true
-                        //                                    print (allDisabledAlert)
-                    } else {
-                        for image in imagePicker.images {
-                            let imageSaver = ImageSaver()
-                            if !image.isDisabled {
-                                imageSaver.writeToPhotoAlbum(image: image.image)
-                            }
-                        }
-                        saveAlert = true
-                    }
+                    downloadImages(images: imagePicker.images, albumName: "PicPackr")
+                    saveAlert = true
                 } label: {
                     Text("Save All (\(imagePicker.images.filter { image in image.isDisabled == false }.count))")
                         .frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
@@ -131,12 +120,12 @@ struct ImageCompressionPage: View {
                         .cornerRadius(20)
                         .padding(.horizontal, 20)
                 }
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 30)
                     .alert("No Images Selected", isPresented: $allDisabledAlert) {
                     Button("OK", role: .cancel) {
                         allDisabledAlert = false
                     } }
-                    .alert("Images Saved", isPresented: $saveAlert) {
+                    .alert("Images Saved to albumn \"PicPackr\"", isPresented: $saveAlert) {
                     Button("OK", role: .cancel) {
                         saveAlert = false
                         reset()
@@ -149,9 +138,9 @@ struct ImageCompressionPage: View {
                 firstTime = false
             }
         }
+
     }
 }
-
 //
 //struct ImageCompressionPage_Previews: PreviewProvider {
 //    static var previews: some View {

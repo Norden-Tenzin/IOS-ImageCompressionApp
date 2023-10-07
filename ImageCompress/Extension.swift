@@ -7,17 +7,9 @@
 
 import SwiftUI
 import PhotosUI
+import Photos
 
 // MARK: - Extenssions
-
-class ImageSaver: NSObject {
-    func writeToPhotoAlbum(image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
-    }
-    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-//        print("Save finished!")
-    }
-}
 
 struct EdgeBorder: Shape {
     var width: CGFloat

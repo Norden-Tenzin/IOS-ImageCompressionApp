@@ -73,7 +73,6 @@ struct LaunchView: View {
     var body: some View {
         NavigationView {
             VStack {
-                let _ = print("ImagePICKER: \(imagePicker.stringImages())")
                 if (imagePicker.images.isEmpty) {
                     UploadPage(imagePicker: imagePicker)
                         .frame(
@@ -86,9 +85,14 @@ struct LaunchView: View {
                 }
             }
                 .alert(isPresented: $resetAlert) {
-                Alert(title: Text("Are you sure you want to reset the images?"), primaryButton: .cancel(),
-                    secondaryButton: .destructive(Text("Confirm")) {
-                        reset() })
+                Alert(title: Text("Are you sure you want to reset the images?"),
+                    primaryButton:
+                        .destructive(Text("Confirm")) {
+                        reset()
+                    },
+                    secondaryButton:
+                        .cancel()
+                )
             }
                 .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -103,10 +107,10 @@ struct LaunchView: View {
                         showSheet.toggle()
                     } label: {
                         if (colorScheme == .light) {
-                            Image(systemName: "gearshape")
+                            Image(systemName: "gearshape.fill")
                                 .tint(.black)
                         } else {
-                            Image(systemName: "gearshape")
+                            Image(systemName: "gearshape.fill")
                                 .tint(.white)
                         }
                     }
@@ -122,10 +126,8 @@ struct LaunchView: View {
     }
 }
 
-struct LaunchView_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchView()
-    }
+#Preview {
+    LaunchView()
 }
 
 
