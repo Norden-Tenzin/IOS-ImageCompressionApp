@@ -15,20 +15,23 @@ class ImageData: ObservableObject, Identifiable {
     }
     var id: UUID = UUID()
     var image: UIImage
+    var imageName: String
     var imageSize: Double
     var imageType: String
     var isLoading: Bool
     var isDisabled: Bool
 
-    init(image: UIImage, imageSize: Double, imageType: String) {
+    init(image: UIImage, imageName: String, imageSize: Double, imageType: String) {
         self.image = image
+        self.imageName = imageName
         self.imageSize = imageSize
         self.imageType = imageType
         self.isLoading = false
         self.isDisabled = false
     }
-    init(image: UIImage, imageSize: Double, imageType: String, isLoading: Bool, isDisabled: Bool) {
+    init(image: UIImage, imageName: String, imageSize: Double, imageType: String, isLoading: Bool, isDisabled: Bool) {
         self.image = image
+        self.imageName = imageName
         self.imageSize = imageSize
         self.imageType = imageType
         self.isLoading = isLoading
@@ -41,13 +44,11 @@ class ImageData: ObservableObject, Identifiable {
         self.isDisabled = isDisabled
     }
     func copy(with zone: NSZone? = nil) -> ImageData {
-        return ImageData(image: image, imageSize: imageSize, imageType: imageType)
+        return ImageData(image: image, imageName: imageName, imageSize: imageSize, imageType: imageType)
     }
-
     func stringInfo() -> String {
         return "imageSize: \(imageSize), imageType: \(imageType), isLoading: \(isLoading)"
     }
-
     func printInfo() {
         print(stringInfo())
     }
@@ -73,18 +74,31 @@ class ImagePicker: ObservableObject {
         images[index] = newImageData
     }
 
-    func loadTransferable(from imageSelection: [PhotosPickerItem]) async throws {
+    func loadTransferable(from imageSelections: [PhotosPickerItem]) async throws {
         do {
             self.images = []
             for imageSelection in imageSelections {
                 if let data = try await imageSelection.loadTransferable(type: Data.self) {
+                    var fileName: String = ""
+                    var fileType: String = ""
+                    if let localID = imageSelection.itemIdentifier {
+                        let result = PHAsset.fetchAssets(withLocalIdentifiers: [localID], options: nil)
+                        if let asset = result.firstObject {
+                            let resources = PHAssetResource.assetResources(for: asset)
+                            for resource in resources {
+                                if resource.type == .photo {
+                                    let originalFilename = resource.originalFilename
+                                    fileName = (originalFilename as NSString).deletingPathExtension
+                                    fileType = (originalFilename as NSString).pathExtension
+                                }
+                            }
+                        }
+                    }
                     if let uiImage = UIImage(data: data) {
-                        self.images = self.images + [ImageData(image: uiImage, imageSize: getSizeMb(data: data), imageType: ImageFormat.get(from: data).rawValue)]
-//                        self.images.append(ImageData(image: uiImage, imageSize: getSizeMb(data: data), imageType: ImageFormat.get(from: data).rawValue))
+                        self.images = self.images + [ImageData(image: uiImage, imageName: fileName, imageSize: getSizeMb(data: data), imageType: fileType)]
                     }
                 }
             }
-//            self.printImages()
         }
     }
 
@@ -120,10 +134,13 @@ enum ImageFormat: String {
 
 extension ImageFormat {
     static func get(from data: Data) -> ImageFormat {
+        print(data.count)
         switch data[0] {
         case 0x89:
             return .png
         case 0xFF:
+            print(data[0])
+            print("IN JPEG")
             return .jpg
         case 0x47:
             return .gif
@@ -131,16 +148,14 @@ extension ImageFormat {
             return .tiff
         case 0x52 where data.count >= 12:
             let subdata = data[0...11]
-
             if let dataString = String(data: subdata, encoding: .ascii),
                 dataString.hasPrefix("RIFF"),
                 dataString.hasSuffix("WEBP")
             {
                 return .webp
             }
-
         case 0x00 where data.count >= 12:
-            let subdata = data[8...11]
+            let subdata = data[4...5]
 
             if let dataString = String(data: subdata, encoding: .ascii),
                 Set(["heic", "heix", "hevc", "hevx"]).contains(dataString)

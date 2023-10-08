@@ -8,3 +8,4 @@
 import Foundation
 
 let REVENUECAT_API_KEY = "appl_TnzGjiJiKaJITwzYtYJqevxPojB"
+let ENTITLEMENT_ID = "pro"

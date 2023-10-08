@@ -110,7 +110,6 @@ class ImageSaver2: NSObject {
         )
     }
 
-
     func saveImage(image: UIImage, album: PHAssetCollection) {
         PHPhotoLibrary.shared().performChanges({
             let creationRequest = PHAssetChangeRequest.creationRequestForAsset(from: image)

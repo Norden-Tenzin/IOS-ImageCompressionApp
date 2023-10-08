@@ -77,7 +77,7 @@ struct UploadPage: View {
                     .padding(.vertical, 10)
                     .background(Color("secondary-color"))
                     .foregroundColor(Color.white)
-                    .cornerRadius(20)
+                    .cornerRadius(10)
                     .padding(.horizontal, 20)
             }
                 .padding(.bottom, 40)
@@ -93,6 +93,7 @@ struct UploadPage: View {
             isPresented: $isPhotoPickerActive,
             selection: $imagePicker.imageSelections,
             maxSelectionCount: 5,
-            matching: .images)
+            matching: .images,
+            photoLibrary: .shared())
     }
 }

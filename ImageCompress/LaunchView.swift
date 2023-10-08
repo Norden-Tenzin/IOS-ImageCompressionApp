@@ -36,7 +36,7 @@ struct LaunchView: View {
         isCompressRunning = true
         for (index, _) in imagePicker.images.enumerated() {
             let temp = imagePicker.images[index].copy()
-            imagePicker.images[index] = ImageData(image: temp.image, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: true, isDisabled: temp.isDisabled)
+            imagePicker.images[index] = ImageData(image: temp.image, imageName: temp.imageName, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: true, isDisabled: temp.isDisabled)
         }
 //        imagePicker.images.forEach { imageData in
 //            imageData.printInfo()
@@ -47,7 +47,7 @@ struct LaunchView: View {
                 if (image.imageSize <= targetSize) {
                     DispatchQueue.main.async {
                         let temp = imagePicker.images[index].copy()
-                        imagePicker.images[index] = ImageData(image: temp.image, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: false, isDisabled: temp.isDisabled)
+                        imagePicker.images[index] = ImageData(image: temp.image, imageName: temp.imageName, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: false, isDisabled: temp.isDisabled)
                     }
                 } else {
                     let compressedImage: ImageData = compressImage_2(image: image, targetSize: targetSize)
@@ -85,7 +85,7 @@ struct LaunchView: View {
                 }
             }
                 .alert(isPresented: $resetAlert) {
-                Alert(title: Text("Are you sure you want to reset the images?"),
+                Alert(title: Text("Are you sure you want to reset?"),
                     primaryButton:
                         .destructive(Text("Confirm")) {
                         reset()
@@ -123,6 +123,7 @@ struct LaunchView: View {
                 .ignoresSafeArea(.container, edges: .bottom)
                 .background(Color("background"))
         }
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

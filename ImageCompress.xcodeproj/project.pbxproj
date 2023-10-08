@@ -11,11 +11,15 @@
 		652C9CED2A84E69100CEBE88 /* SECRETS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C9CEC2A84E69100CEBE88 /* SECRETS.swift */; };
 		654EA61229EAD21B00D27B21 /* ImageCompressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */; };
 		654EA61629EAD21B00D27B21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654EA61529EAD21B00D27B21 /* Assets.xcassets */; };
-		654EA61929EAD21B00D27B21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */; };
 		654EA62729EADD9900D27B21 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA62629EADD9900D27B21 /* LaunchView.swift */; };
 		654EA62D29ED080000D27B21 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA62C29ED080000D27B21 /* ImagePicker.swift */; };
 		65560BD92A592ADF00D8BE87 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */; };
 		65560BDB2A5933A400D8BE87 /* CompressionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65560BDA2A5933A400D8BE87 /* CompressionFunctions.swift */; };
+		65D0E97D2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */; };
+		65D0E97F2AD1891800A8FFF0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */; };
+		65D0E9962AD19C6600A8FFF0 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 65D0E9952AD19C6600A8FFF0 /* ReceiptParser */; };
+		65D0E9982AD19C6600A8FFF0 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 65D0E9972AD19C6600A8FFF0 /* RevenueCat */; };
+		65D0E99A2AD19C6600A8FFF0 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 65D0E9992AD19C6600A8FFF0 /* RevenueCatUI */; };
 		65E02A3C2A1645E400FD894E /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E02A3B2A1645E400FD894E /* ImageCell.swift */; };
 		65E02A3E2A16464F00FD894E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E02A3D2A16464F00FD894E /* Helper.swift */; };
 		65E02A402A16467800FD894E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E02A3F2A16467800FD894E /* Extension.swift */; };
@@ -28,14 +32,15 @@
 		654EA60E29EAD21B00D27B21 /* PicPackr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPackr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompressApp.swift; sourceTree = "<group>"; };
 		654EA61529EAD21B00D27B21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		654EA62629EADD9900D27B21 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		654EA62C29ED080000D27B21 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		65560BDA2A5933A400D8BE87 /* CompressionFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionFunctions.swift; sourceTree = "<group>"; };
 		65C73CDF29EE9D1A00B0FCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		65E02A362A13B76000FD894E /* Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
-		65E02A372A13B78800FD894E /* Helper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Helper-Bridging-Header.h"; sourceTree = "<group>"; };
+		65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesDelegateHandler.swift; sourceTree = "<group>"; };
+		65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		65D0E9892AD1972100A8FFF0 /* Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		65D0E98A2AD1972100A8FFF0 /* Helper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Helper-Bridging-Header.h"; sourceTree = "<group>"; };
 		65E02A3B2A1645E400FD894E /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		65E02A3D2A16464F00FD894E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		65E02A3F2A16467800FD894E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D0E9982AD19C6600A8FFF0 /* RevenueCat in Frameworks */,
+				65D0E9962AD19C6600A8FFF0 /* ReceiptParser in Frameworks */,
+				65D0E99A2AD19C6600A8FFF0 /* RevenueCatUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +66,6 @@
 			children = (
 				654EA61029EAD21B00D27B21 /* ImageCompress */,
 				654EA60F29EAD21B00D27B21 /* Products */,
-				92357A0A6CA6A2C937A623E6 /* Pods */,
-				65E02A382A15E39E00FD894E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +82,8 @@
 			children = (
 				65C73CDF29EE9D1A00B0FCE0 /* Info.plist */,
 				654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */,
+				65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */,
+				65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */,
 				65E02A412A16483B00FD894E /* UploadPage.swift */,
 				654EA62629EADD9900D27B21 /* LaunchView.swift */,
 				65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */,
@@ -86,34 +94,11 @@
 				65E02A3D2A16464F00FD894E /* Helper.swift */,
 				65E02A3F2A16467800FD894E /* Extension.swift */,
 				652C9CEC2A84E69100CEBE88 /* SECRETS.swift */,
-				65E02A372A13B78800FD894E /* Helper-Bridging-Header.h */,
-				65E02A362A13B76000FD894E /* Helper.h */,
+				65D0E98A2AD1972100A8FFF0 /* Helper-Bridging-Header.h */,
+				65D0E9892AD1972100A8FFF0 /* Helper.h */,
 				654EA61529EAD21B00D27B21 /* Assets.xcassets */,
-				654EA61729EAD21B00D27B21 /* Preview Content */,
 			);
 			path = ImageCompress;
-			sourceTree = "<group>";
-		};
-		654EA61729EAD21B00D27B21 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				654EA61829EAD21B00D27B21 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		65E02A382A15E39E00FD894E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		92357A0A6CA6A2C937A623E6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +118,9 @@
 			);
 			name = ImageCompress;
 			packageProductDependencies = (
+				65D0E9952AD19C6600A8FFF0 /* ReceiptParser */,
+				65D0E9972AD19C6600A8FFF0 /* RevenueCat */,
+				65D0E9992AD19C6600A8FFF0 /* RevenueCatUI */,
 			);
 			productName = ImageCompress;
 			productReference = 654EA60E29EAD21B00D27B21 /* PicPackr.app */;
@@ -146,7 +134,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					654EA60D29EAD21B00D27B21 = {
 						CreatedOnToolsVersion = 14.3;
@@ -164,7 +152,7 @@
 			);
 			mainGroup = 654EA60529EAD21B00D27B21;
 			packageReferences = (
-				652C9CEE2A84F72F00CEBE88 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 654EA60F29EAD21B00D27B21 /* Products */;
 			projectDirPath = "";
@@ -180,7 +168,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				654EA61929EAD21B00D27B21 /* Preview Assets.xcassets in Resources */,
 				654EA61629EAD21B00D27B21 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,10 +183,12 @@
 				65E02A422A16483B00FD894E /* UploadPage.swift in Sources */,
 				654EA62D29ED080000D27B21 /* ImagePicker.swift in Sources */,
 				65075C442A599BAC009288BA /* ImageCompressionPage.swift in Sources */,
+				65D0E97D2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift in Sources */,
 				65560BDB2A5933A400D8BE87 /* CompressionFunctions.swift in Sources */,
 				65E02A3C2A1645E400FD894E /* ImageCell.swift in Sources */,
 				65E02A3E2A16464F00FD894E /* Helper.swift in Sources */,
 				65E02A402A16467800FD894E /* Extension.swift in Sources */,
+				65D0E97F2AD1891800A8FFF0 /* UserViewModel.swift in Sources */,
 				654EA62729EADD9900D27B21 /* LaunchView.swift in Sources */,
 				654EA61229EAD21B00D27B21 /* ImageCompressApp.swift in Sources */,
 				652C9CED2A84E69100CEBE88 /* SECRETS.swift in Sources */,
@@ -245,6 +234,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -260,7 +250,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -306,6 +296,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -315,7 +306,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -332,13 +323,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_ASSET_PATHS = "\"ImageCompress/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = D7UAPTYYWC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageCompress/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = PicPackr;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow access to photos to save the compressed images.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to photos to add images for compression.";
@@ -347,12 +338,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.norden.ImageCompress;
 				PRODUCT_NAME = PicPackr;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -372,13 +364,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_ASSET_PATHS = "\"ImageCompress/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = D7UAPTYYWC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageCompress/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = PicPackr;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow access to photos to save the compressed images.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to photos to add images for compression.";
@@ -387,12 +379,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.norden.ImageCompress;
 				PRODUCT_NAME = PicPackr;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -428,15 +421,33 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		652C9CEE2A84F72F00CEBE88 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+		65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				minimumVersion = 4.27.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		65D0E9952AD19C6600A8FFF0 /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = ReceiptParser;
+		};
+		65D0E9972AD19C6600A8FFF0 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		65D0E9992AD19C6600A8FFF0 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 654EA60629EAD21B00D27B21 /* Project object */;
 }

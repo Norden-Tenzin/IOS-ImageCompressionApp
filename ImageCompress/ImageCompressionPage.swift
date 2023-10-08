@@ -27,23 +27,25 @@ struct ImageCompressionPage: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Images")
-                    .font(.title2)
-                    .fontWeight(.bold)
+                Text("IMAGES")
+                    .font(.system(size: 17, weight: .medium))
                 Spacer()
                 if (!isFinished) {
                     PhotosPicker(
                         selection: $imagePicker.imageSelections,
                         maxSelectionCount: 5,
-                        matching: .images
+                        matching: .images,
+                        photoLibrary: .shared()
                     ) {
-                        Text("Edit Selection")
+                        Text("Edit")
+                            .font(.system(size: 17, weight: .medium))
                     }.disabled(isCompressRunning)
                 } else {
                     Button(role: .destructive) {
                         resetAlert = true
                     } label: {
-                        Text("Reset Selection")
+                        Text("Reset")
+                            .font(.system(size: 17, weight: .medium))
                     }
                 }
             }.padding([.top, .leading, .trailing])
@@ -53,6 +55,8 @@ struct ImageCompressionPage: View {
                         if (imagePicker.images[index].isDisabled) {
                             ImageCell(imageData: imagePicker.images[index])
                                 .listRowSeparator(.hidden)
+                                .listRowSpacing(0)
+                                .listRowInsets(EdgeInsets(.init(top: 5, leading: 15, bottom: 5, trailing: 15)))
                                 .opacity(0.5)
                                 .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
                                 Button {
@@ -65,6 +69,8 @@ struct ImageCompressionPage: View {
                         } else {
                             ImageCell(imageData: imagePicker.images[index])
                                 .listRowSeparator(.hidden)
+                                .listRowSpacing(0)
+                                .listRowInsets(EdgeInsets(.init(top: 5, leading: 15, bottom: 5, trailing: 15)))
                                 .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
                                 Button {
                                     disable(index)
@@ -75,15 +81,16 @@ struct ImageCompressionPage: View {
                             })
                         }
                     }
-
                 }
                     .listStyle(.plain)
                     .navigationViewStyle(StackNavigationViewStyle())
             } else {
                 List {
-                    ForEach(imagePicker.images) { image in
+                    ForEach(imagePicker.images, id: \.id) { image in
                         ImageCell(imageData: image)
                             .listRowSeparator(.hidden)
+                            .listRowSpacing(0)
+                            .listRowInsets(EdgeInsets(.init(top: 5, leading: 15, bottom: 5, trailing: 15)))
                     }
                 }
                     .listStyle(.plain)
@@ -101,8 +108,8 @@ struct ImageCompressionPage: View {
                         .padding(.vertical, 10)
                         .background(Color("secondary-color"))
                         .foregroundColor(Color.white)
-                        .cornerRadius(20)
-                        .padding(.horizontal, 20)
+                        .cornerRadius(10)
+                        .padding(.horizontal, 15)
                 }
                     .padding(.bottom, 30)
                     .disabled(!isActive)
@@ -111,14 +118,14 @@ struct ImageCompressionPage: View {
                     downloadImages(images: imagePicker.images, albumName: "PicPackr")
                     saveAlert = true
                 } label: {
-                    Text("Save All (\(imagePicker.images.filter { image in image.isDisabled == false }.count))")
+                    Text("Save (\(imagePicker.images.filter { image in image.isDisabled == false }.count))")
                         .frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
                         .font(.title2)
                         .padding(.vertical, 10)
                         .background(Color("secondary-color"))
                         .foregroundColor(Color.white)
-                        .cornerRadius(20)
-                        .padding(.horizontal, 20)
+                        .cornerRadius(10)
+                        .padding(.horizontal, 15)
                 }
                     .padding(.bottom, 30)
                     .alert("No Images Selected", isPresented: $allDisabledAlert) {
@@ -141,9 +148,3 @@ struct ImageCompressionPage: View {
 
     }
 }
-//
-//struct ImageCompressionPage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageCompressionPage()
-//    }
-//}

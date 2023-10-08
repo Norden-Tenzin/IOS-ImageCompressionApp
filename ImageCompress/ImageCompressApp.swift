@@ -6,22 +6,35 @@
 //
 
 import SwiftUI
-//import RevenueCat
+import RevenueCat
 
 @main
 struct ImageCompressApp: App {
-//    init() {
-//        Purchases.logLevel = .debug
+    init() {
+        Purchases.logLevel = .debug
+        Purchases.configure(with: Configuration.builder(withAPIKey: REVENUECAT_API_KEY).build())
+        Purchases.configure(
+            with: Configuration.Builder(withAPIKey: REVENUECAT_API_KEY).build()
+        )
+    }
+    var body: some Scene {
+        WindowGroup {
+            LaunchView()
+//                .task {
+//                do {
+//                    UserViewModel.shared.offerings = try await Purchases.shared.offerings()
+//                } catch {
+//                    print("Error Fetching Offerings: \(error)")
+//                }
+//            }
+        }
+    }
+}
+
 //        Purchases.configure(withAPIKey: REVENUECAT_API_KEY)
-//        Purchases.shared.getProducts(["tier1", "teir2", "teir3", "teir4"], completion:
+//        Purchases.shared.delegate = PurchasesDelegateHandler.shared
+//        Purchases.shared.getProducts(["tier1", "teir2", "teir3"], completion:
 //            { tipLevel in
 //                print("HERE")
 //                print(tipLevel)
 //            })
-//    }
-    var body: some Scene {
-        WindowGroup {
-            LaunchView()
-        }
-    }
-}
