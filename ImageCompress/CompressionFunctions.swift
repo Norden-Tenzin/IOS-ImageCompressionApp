@@ -55,27 +55,27 @@ func compressImage_1(image: ImageData, targetSize: Int) -> ImageData {
         compressionQuality -= 0.1
     }
 //        print("ran at \(getSizeMb(data: imageData!)) : \(Double(targetSize))")
-    return ImageData(image: UIImage(data: imageData!)!, imageName: image.imageName, imageSize: getSizeMb(data: imageData!), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+    return ImageData(image: UIImage(data: imageData!)!, uncompressedImage: image.uncompressedImage, imageName: image.imageName, imageSize: getSizeMb(data: imageData!), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
 }
 
-// Currently In Use
+// Function Currently in Use
 func compressImage_2(image: ImageData, targetSize: Double) -> ImageData {
     let uiImage = image.image
     let imageData = uiImage.compress(to: targetSize)
 //        print("ran at \(getSizeMb(data: imageData)) : \(Double(targetSize))")
-    return ImageData(image: UIImage(data: imageData)!, imageName: image.imageName, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+    return ImageData(image: UIImage(data: imageData)!, uncompressedImage: image.uncompressedImage, imageName: image.imageName, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
 }
 
 func compressImage_3(image: ImageData, targetSize: Int) -> ImageData {
     let uiImage = image.image
     let imageData = uiImage.resizeToApprox(sizeInMB: Double(targetSize))
 //        print("ran at \(getSizeMb(data: imageData)) : \(Double(targetSize))")
-    return ImageData(image: UIImage(data: imageData)!, imageName: image.imageName, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+    return ImageData(image: UIImage(data: imageData)!, uncompressedImage: image.uncompressedImage, imageName: image.imageName, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
 }
 
 func compressImage_4(image: ImageData, targetSize: Int) -> ImageData {
     let uiImage = image.image
     let imageData = uiImage.resizeByByte(maxMb: targetSize);
 //        print("ran at \(getSizeMb(data: imageData)) : \(Double(targetSize))")
-    return ImageData(image: UIImage(data: imageData)!, imageName: image.imageName, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
+    return ImageData(image: UIImage(data: imageData)!, uncompressedImage: image.uncompressedImage, imageName: image.imageName, imageSize: getSizeMb(data: imageData), imageType: image.imageType, isLoading: false, isDisabled: image.isDisabled)
 }

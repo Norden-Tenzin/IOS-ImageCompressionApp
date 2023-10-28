@@ -16,6 +16,7 @@ struct LaunchView: View {
     @AppStorage("EXPORT_SIZE") var exportSize: Double = 1.0
     @AppStorage("FIRST_TIME") var firstTime: Bool = true
     @AppStorage("EXPORT_TYPE") var exportType: String = ""
+    @AppStorage("DELETE_ORIGINAL") var deleteOriginal: Bool = false
 //  Image Picker
     @ObservedObject var imagePicker = ImagePicker()
 
@@ -36,7 +37,7 @@ struct LaunchView: View {
         isCompressRunning = true
         for (index, _) in imagePicker.images.enumerated() {
             let temp = imagePicker.images[index].copy()
-            imagePicker.images[index] = ImageData(image: temp.image, imageName: temp.imageName, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: true, isDisabled: temp.isDisabled)
+            imagePicker.images[index] = ImageData(image: temp.image, uncompressedImage: temp.uncompressedImage, imageName: temp.imageName, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: true, isDisabled: temp.isDisabled)
         }
 //        imagePicker.images.forEach { imageData in
 //            imageData.printInfo()
@@ -47,7 +48,7 @@ struct LaunchView: View {
                 if (image.imageSize <= targetSize) {
                     DispatchQueue.main.async {
                         let temp = imagePicker.images[index].copy()
-                        imagePicker.images[index] = ImageData(image: temp.image, imageName: temp.imageName, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: false, isDisabled: temp.isDisabled)
+                        imagePicker.images[index] = ImageData(image: temp.image, uncompressedImage: temp.uncompressedImage, imageName: temp.imageName, imageSize: temp.imageSize, imageType: temp.imageType, isLoading: false, isDisabled: temp.isDisabled)
                     }
                 } else {
                     let compressedImage: ImageData = compressImage_2(image: image, targetSize: targetSize)
@@ -81,7 +82,7 @@ struct LaunchView: View {
                     )
                 }
                 else {
-                    ImageCompressionPage(selectedOption: $selectedOption, imagePicker: imagePicker, isFinished: $isFinished, isCompressRunning: $isCompressRunning, resetAlert: $resetAlert, isActive: $isActive, allDisabledAlert: $allDisabledAlert, saveAlert: $saveAlert, firstTime: $firstTime, showSheet: $showSheet, disable: disable, reset: reset, compressImages: compressImages)
+                    ImageCompressionPage(selectedOption: $selectedOption, imagePicker: imagePicker, isFinished: $isFinished, isCompressRunning: $isCompressRunning, resetAlert: $resetAlert, isActive: $isActive, allDisabledAlert: $allDisabledAlert, saveAlert: $saveAlert, firstTime: $firstTime, showSheet: $showSheet, deleteOriginal: $deleteOriginal, disable: disable, reset: reset, compressImages: compressImages)
                 }
             }
                 .alert(isPresented: $resetAlert) {
@@ -96,11 +97,10 @@ struct LaunchView: View {
             }
                 .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if (colorScheme == .light) {
-                        Image("picpac-black")
-                    } else {
-                        Image("picpac-white")
-                    }
+                    Image(colorScheme == .light ? "picpac-black" : "picpac-white")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 120)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -115,11 +115,10 @@ struct LaunchView: View {
                         }
                     }
                         .sheet(isPresented: $showSheet) {
-                        SettingsSheet(selectedOption: $selectedOption, showSheet: $showSheet, exportSize: $exportSize)
+                        SettingsSheet(selectedOption: $selectedOption, showSheet: $showSheet, exportSize: $exportSize, deleteOriginal: $deleteOriginal)
                     }
                 }
             }
-                .conditionalModifier(colorScheme == .light, LightBorder(width: 2, edges: [.top]), DarkBorder(width: 2, edges: [.top]))
                 .ignoresSafeArea(.container, edges: .bottom)
                 .background(Color("background"))
         }
@@ -130,5 +129,3 @@ struct LaunchView: View {
 #Preview {
     LaunchView()
 }
-
-

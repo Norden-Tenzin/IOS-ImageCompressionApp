@@ -71,7 +71,9 @@ struct LightBorder: ViewModifier {
     let edges: [Edge]
 
     func body(content: Content) -> some View {
-        content.border(width: width, edges: edges, color: Color.black)
+        content
+            .border(width: width, edges: edges, color: Color.black)
+//            .overlay(content: { Shine() })
     }
 }
 
@@ -80,7 +82,9 @@ struct DarkBorder: ViewModifier {
     let edges: [Edge]
 
     func body(content: Content) -> some View {
-        content.border(width: width, edges: edges, color: Color.white)
+        content
+            .border(width: width, edges: edges, color: Color.white)
+//            .overlay(content: { Shine() })
     }
 }
 

@@ -15,6 +15,10 @@
 		654EA62D29ED080000D27B21 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EA62C29ED080000D27B21 /* ImagePicker.swift */; };
 		65560BD92A592ADF00D8BE87 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */; };
 		65560BDB2A5933A400D8BE87 /* CompressionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65560BDA2A5933A400D8BE87 /* CompressionFunctions.swift */; };
+		65ADAEBD2AEA4B8A0039EE8F /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65ADAEBC2AEA4B780039EE8F /* PressStart2P-Regular.ttf */; };
+		65ADAEC02AEAAAAF0039EE8F /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 65ADAEBF2AEAAAAF0039EE8F /* ActivityView */; };
+		65ADAEC22AEABAF10039EE8F /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADAEC12AEABAF10039EE8F /* ShareView.swift */; };
+		65ADAEC42AEBEB220039EE8F /* HelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADAEC32AEBEB220039EE8F /* HelperViews.swift */; };
 		65D0E97D2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */; };
 		65D0E97F2AD1891800A8FFF0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */; };
 		65D0E9962AD19C6600A8FFF0 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 65D0E9952AD19C6600A8FFF0 /* ReceiptParser */; };
@@ -36,6 +40,9 @@
 		654EA62C29ED080000D27B21 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		65560BDA2A5933A400D8BE87 /* CompressionFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionFunctions.swift; sourceTree = "<group>"; };
+		65ADAEBC2AEA4B780039EE8F /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
+		65ADAEC12AEABAF10039EE8F /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		65ADAEC32AEBEB220039EE8F /* HelperViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViews.swift; sourceTree = "<group>"; };
 		65C73CDF29EE9D1A00B0FCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesDelegateHandler.swift; sourceTree = "<group>"; };
 		65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65ADAEC02AEAAAAF0039EE8F /* ActivityView in Frameworks */,
 				65D0E9982AD19C6600A8FFF0 /* RevenueCat in Frameworks */,
 				65D0E9962AD19C6600A8FFF0 /* ReceiptParser in Frameworks */,
 				65D0E99A2AD19C6600A8FFF0 /* RevenueCatUI in Frameworks */,
@@ -64,6 +72,7 @@
 		654EA60529EAD21B00D27B21 = {
 			isa = PBXGroup;
 			children = (
+				65ADAEC32AEBEB220039EE8F /* HelperViews.swift */,
 				654EA61029EAD21B00D27B21 /* ImageCompress */,
 				654EA60F29EAD21B00D27B21 /* Products */,
 			);
@@ -82,12 +91,14 @@
 			children = (
 				65C73CDF29EE9D1A00B0FCE0 /* Info.plist */,
 				654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */,
+				65ADAEBB2AEA4B360039EE8F /* font */,
 				65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */,
 				65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */,
 				65E02A412A16483B00FD894E /* UploadPage.swift */,
 				654EA62629EADD9900D27B21 /* LaunchView.swift */,
 				65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */,
 				65075C432A599BAC009288BA /* ImageCompressionPage.swift */,
+				65ADAEC12AEABAF10039EE8F /* ShareView.swift */,
 				65E02A3B2A1645E400FD894E /* ImageCell.swift */,
 				654EA62C29ED080000D27B21 /* ImagePicker.swift */,
 				65560BDA2A5933A400D8BE87 /* CompressionFunctions.swift */,
@@ -99,6 +110,14 @@
 				654EA61529EAD21B00D27B21 /* Assets.xcassets */,
 			);
 			path = ImageCompress;
+			sourceTree = "<group>";
+		};
+		65ADAEBB2AEA4B360039EE8F /* font */ = {
+			isa = PBXGroup;
+			children = (
+				65ADAEBC2AEA4B780039EE8F /* PressStart2P-Regular.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +140,7 @@
 				65D0E9952AD19C6600A8FFF0 /* ReceiptParser */,
 				65D0E9972AD19C6600A8FFF0 /* RevenueCat */,
 				65D0E9992AD19C6600A8FFF0 /* RevenueCatUI */,
+				65ADAEBF2AEAAAAF0039EE8F /* ActivityView */,
 			);
 			productName = ImageCompress;
 			productReference = 654EA60E29EAD21B00D27B21 /* PicPackr.app */;
@@ -153,6 +173,7 @@
 			mainGroup = 654EA60529EAD21B00D27B21;
 			packageReferences = (
 				65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				65ADAEBE2AEAAAAF0039EE8F /* XCRemoteSwiftPackageReference "ActivityView" */,
 			);
 			productRefGroup = 654EA60F29EAD21B00D27B21 /* Products */;
 			projectDirPath = "";
@@ -168,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65ADAEBD2AEA4B8A0039EE8F /* PressStart2P-Regular.ttf in Resources */,
 				654EA61629EAD21B00D27B21 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +204,7 @@
 				65560BD92A592ADF00D8BE87 /* SettingsSheet.swift in Sources */,
 				65E02A422A16483B00FD894E /* UploadPage.swift in Sources */,
 				654EA62D29ED080000D27B21 /* ImagePicker.swift in Sources */,
+				65ADAEC42AEBEB220039EE8F /* HelperViews.swift in Sources */,
 				65075C442A599BAC009288BA /* ImageCompressionPage.swift in Sources */,
 				65D0E97D2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift in Sources */,
 				65560BDB2A5933A400D8BE87 /* CompressionFunctions.swift in Sources */,
@@ -189,6 +212,7 @@
 				65E02A3E2A16464F00FD894E /* Helper.swift in Sources */,
 				65E02A402A16467800FD894E /* Extension.swift in Sources */,
 				65D0E97F2AD1891800A8FFF0 /* UserViewModel.swift in Sources */,
+				65ADAEC22AEABAF10039EE8F /* ShareView.swift in Sources */,
 				654EA62729EADD9900D27B21 /* LaunchView.swift in Sources */,
 				654EA61229EAD21B00D27B21 /* ImageCompressApp.swift in Sources */,
 				652C9CED2A84E69100CEBE88 /* SECRETS.swift in Sources */,
@@ -421,6 +445,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		65ADAEBE2AEAAAAF0039EE8F /* XCRemoteSwiftPackageReference "ActivityView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUI-Plus/ActivityView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
@@ -432,6 +464,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		65ADAEBF2AEAAAAF0039EE8F /* ActivityView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65ADAEBE2AEAAAAF0039EE8F /* XCRemoteSwiftPackageReference "ActivityView" */;
+			productName = ActivityView;
+		};
 		65D0E9952AD19C6600A8FFF0 /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 65D0E9942AD19C6600A8FFF0 /* XCRemoteSwiftPackageReference "purchases-ios" */;

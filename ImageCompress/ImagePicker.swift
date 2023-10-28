@@ -15,22 +15,25 @@ class ImageData: ObservableObject, Identifiable {
     }
     var id: UUID = UUID()
     var image: UIImage
+    var uncompressedImage: PhotosPickerItem
     var imageName: String
     var imageSize: Double
     var imageType: String
     var isLoading: Bool
     var isDisabled: Bool
 
-    init(image: UIImage, imageName: String, imageSize: Double, imageType: String) {
+    init(image: UIImage, uncompressedImage: PhotosPickerItem, imageName: String, imageSize: Double, imageType: String) {
         self.image = image
+        self.uncompressedImage = uncompressedImage
         self.imageName = imageName
         self.imageSize = imageSize
         self.imageType = imageType
         self.isLoading = false
         self.isDisabled = false
     }
-    init(image: UIImage, imageName: String, imageSize: Double, imageType: String, isLoading: Bool, isDisabled: Bool) {
+    init(image: UIImage, uncompressedImage: PhotosPickerItem, imageName: String, imageSize: Double, imageType: String, isLoading: Bool, isDisabled: Bool) {
         self.image = image
+        self.uncompressedImage = uncompressedImage
         self.imageName = imageName
         self.imageSize = imageSize
         self.imageType = imageType
@@ -44,7 +47,7 @@ class ImageData: ObservableObject, Identifiable {
         self.isDisabled = isDisabled
     }
     func copy(with zone: NSZone? = nil) -> ImageData {
-        return ImageData(image: image, imageName: imageName, imageSize: imageSize, imageType: imageType)
+        return ImageData(image: image, uncompressedImage: uncompressedImage, imageName: imageName, imageSize: imageSize, imageType: imageType)
     }
     func stringInfo() -> String {
         return "imageSize: \(imageSize), imageType: \(imageType), isLoading: \(isLoading)"
@@ -61,7 +64,6 @@ class ImagePicker: ObservableObject {
         didSet {
             Task {
                 if !imageSelections.isEmpty {
-//                    print("HERE")
                     try await loadTransferable(from: imageSelections)
                 } else {
                     self.images = []
@@ -95,7 +97,7 @@ class ImagePicker: ObservableObject {
                         }
                     }
                     if let uiImage = UIImage(data: data) {
-                        self.images = self.images + [ImageData(image: uiImage, imageName: fileName, imageSize: getSizeMb(data: data), imageType: fileType)]
+                        self.images = self.images + [ImageData(image: uiImage, uncompressedImage: imageSelection, imageName: fileName, imageSize: getSizeMb(data: data), imageType: fileType)]
                     }
                 }
             }
@@ -172,3 +174,81 @@ extension ImageFormat {
         return "image/\(rawValue)"
     }
 }
+
+
+
+//protocol Transferable {
+//    func transfer(to destination: Transferable) throws
+//    // Add any other required methods or properties here
+//}
+//
+//class ImageData: ObservableObject, Identifiable, Transferable {
+//    static func == (lhs: ImageData, rhs: ImageData) -> Bool {
+//        lhs.id == rhs.id
+//    }
+//
+//    var id: UUID = UUID()
+//    var image: UIImage
+//    var imageName: String
+//    var imageSize: Double
+//    var imageType: String
+//    var isLoading: Bool
+//    var isDisabled: Bool
+//
+//    init(image: UIImage, imageName: String, imageSize: Double, imageType: String) {
+//        self.image = image
+//        self.imageName = imageName
+//        self.imageSize = imageSize
+//        self.imageType = imageType
+//        self.isLoading = false
+//        self.isDisabled = false
+//    }
+//
+//    init(image: UIImage, imageName: String, imageSize: Double, imageType: String, isLoading: Bool, isDisabled: Bool) {
+//        self.image = image
+//        self.imageName = imageName
+//        self.imageSize = imageSize
+//        self.imageType = imageType
+//        self.isLoading = isLoading
+//        self.isDisabled = isDisabled
+//    }
+//
+//    func setIsLoading(isLoading: Bool) {
+//        self.isLoading = isLoading
+//    }
+//
+//    func setIsDisabled(isDisabled: Bool) {
+//        self.isDisabled = isDisabled
+//    }
+//
+//    func copy(with zone: NSZone? = nil) -> ImageData {
+//        return ImageData(image: image, imageName: imageName, imageSize: imageSize, imageType: imageType)
+//    }
+//
+//    func stringInfo() -> String {
+//        return "imageSize: \(imageSize), imageType: \(imageType), isLoading: \(isLoading)"
+//    }
+//
+//    func printInfo() {
+//        print(stringInfo())
+//    }
+//
+//    // Implement the transfer method to transfer data to another ImageData instance
+//    func transfer(to destination: Transferable) throws {
+//        guard let destinationImageData = destination as? ImageData else {
+//            throw TransferError.incompatibleTypes
+//        }
+//
+//        // Implement your data transfer logic here
+//        destinationImageData.image = self.image
+//        destinationImageData.imageName = self.imageName
+//        destinationImageData.imageSize = self.imageSize
+//        destinationImageData.imageType = self.imageType
+//        destinationImageData.isLoading = self.isLoading
+//        destinationImageData.isDisabled = self.isDisabled
+//    }
+//}
+//
+//enum TransferError: Error {
+//    case incompatibleTypes
+//}

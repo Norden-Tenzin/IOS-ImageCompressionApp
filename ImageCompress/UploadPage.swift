@@ -18,22 +18,27 @@ struct UploadPage: View {
 
     var body: some View {
         VStack (alignment: .center) {
+            Rectangle()
+                .foregroundStyle(colorScheme == .light ? .black : .white)
+                .frame(height: 2)
+//                .overlay(content: { Shine(color: colorScheme == .light ?  Color.orange : Color.orange) })
             Spacer()
             if (colorScheme == .light) {
                 Image("default_img_black")
             } else {
                 Image("default_img_white")
             }
-            Text("Welcome to PicPac")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.bottom)
             Group {
-                Text("Get started by Adding")
-                Text(" your images now.")
+                Text("Let's begin by adding your images")
+                    .font(.system(size: 20))
                     .padding(.bottom)
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(5)
             }
-                .frame(maxWidth: 200)
+                .frame(maxWidth: 225)
+                .padding(.bottom, 4)
+                .padding(.top, 8)
+            Spacer()
             Button {
                 let authStatus = PHPhotoLibrary.authorizationStatus()
                 switch authStatus
@@ -41,7 +46,7 @@ struct UploadPage: View {
                 case .denied:
                     print("denied status")
                     photosAccessAlert = true
-                    print(photosAccessAlert)
+//                    print(photosAccessAlert)
                     //                            openAppSettings()
                     break
                 case .authorized:
@@ -71,17 +76,18 @@ struct UploadPage: View {
                     break
                 }
             } label: {
-                Text("Add")
-                    .frame(minWidth: 100, maxWidth: 300, minHeight: 40)
-                    .font(.title2)
-                    .padding(.vertical, 10)
-                    .background(Color("secondary-color"))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
-                    .padding(.horizontal, 20)
+                RoundedRectangle(cornerRadius: 10)
+                    .overlay {
+                    Text("Add Images")
+                        .font(.system(size: TEXTSIZE))
+                        .foregroundColor(Color.primary)
+                        .fontWeight(.medium)
+                }
             }
-                .padding(.bottom, 40)
-            Spacer(minLength: 250)
+                .frame(height: BUTTONHEIGHT)
+                .foregroundStyle(Color("secondary-color"))
+                .padding(.horizontal, 15)
+                .padding(.bottom, 30)
         }
             .alert("Photos permissions is required to add images for compression select \"All Photos\".", isPresented: $photosAccessAlert, actions: {
             Button("Settings", role: .cancel) {

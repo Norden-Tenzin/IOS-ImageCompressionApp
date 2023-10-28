@@ -10,11 +10,10 @@ import PhotosUI
 import SwiftUI
 
 struct ImageCell: View {
-//    Environment Variables
     @Environment(\.colorScheme) var colorScheme
     @ObservedObject var imageData: ImageData
     var body: some View {
-        HStack (alignment: .top, spacing: 10) {
+        HStack (alignment: .top, spacing: 0) {
             if (imageData.isLoading) {
                 ZStack {
                     Image(uiImage: imageData.image)
@@ -31,47 +30,61 @@ struct ImageCell: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 120, height: 120)
                     .clipped()
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .clipShape(.rect(
+                    topLeadingRadius: 5,
+                    bottomLeadingRadius: 5,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 0
+                    ))
             } else {
                 Image(uiImage: imageData.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 120, height: 120)
                     .clipped()
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .clipShape(.rect(
+                    topLeadingRadius: 5,
+                    bottomLeadingRadius: 5,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 0
+                    ))
             }
             VStack(alignment: .leading) {
-                HStack(alignment: .top) {
-                    Text("name")
-                    Spacer()
+                HStack {
                     Text("\(imageData.imageName)")
-                        .lineLimit(1)
-                        .foregroundStyle(Color.secondary)
+                    Spacer()
                 }
+                    .lineLimit(1)
+                    .foregroundStyle(Color.primary)
                     .padding(.vertical, 5)
                     .padding(.horizontal, 10)
                     .background(Color.systemGray5)
                     .clipShape(.rect(
-                    topLeadingRadius: 5,
+                    topLeadingRadius: 0,
                     bottomLeadingRadius: 0,
                     bottomTrailingRadius: 0,
                     topTrailingRadius: 5
                     ))
                 HStack {
-                    Text("format")
-                        .foregroundStyle(Color.secondary)
+                    Text("Format")
+                        .foregroundStyle(Color.primary)
                     Spacer()
-                    Text("\(imageData.imageType)")
+                    Text("\(imageData.imageType.uppercased())")
                         .padding(.vertical, 2)
                         .padding(.horizontal, 4)
                         .background(Color.tertiaryLabel)
                         .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 5.0))
+                        .clipShape(.rect(
+                        topLeadingRadius: 5,
+                        bottomLeadingRadius: 5,
+                        bottomTrailingRadius: 5,
+                        topTrailingRadius: 5
+                        ))
                 }
                     .padding(.horizontal, 10)
                 HStack {
-                    Text("size")
-                        .foregroundStyle(Color.secondary)
+                    Text("Size")
+                        .foregroundStyle(Color.primary)
                     Spacer()
                     if imageData.imageSize < 1 {
                         Text("\(Int(imageData.imageSize * 1024)) KB")
@@ -85,7 +98,12 @@ struct ImageCell: View {
             }
                 .font(.system(size: 16, weight: .regular))
                 .background(Color.systemGray6)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .clipShape(.rect(
+                topLeadingRadius: 0,
+                bottomLeadingRadius: 0,
+                bottomTrailingRadius: 5,
+                topTrailingRadius: 5
+                ))
                 .frame(maxHeight: 120)
 
         }
@@ -94,6 +112,19 @@ struct ImageCell: View {
     }
 }
 
-#Preview {
-    ImageCell(imageData: ImageData(image: UIImage(named: "AppIcon")!, imageName: "SOMEIMAGE", imageSize: 300, imageType: "HEIC"))
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape(RoundedCorner(radius: radius, corners: corners))
+    }
 }
+struct RoundedCorner: Shape {
+
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
