@@ -69,6 +69,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53DAEEE22D52757F007C05BF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */,
+				65560BDA2A5933A400D8BE87 /* CompressionFunctions.swift */,
+				65D0E98A2AD1972100A8FFF0 /* Helper-Bridging-Header.h */,
+				65D0E9892AD1972100A8FFF0 /* Helper.h */,
+				65E02A3D2A16464F00FD894E /* Helper.swift */,
+				65E02A3F2A16467800FD894E /* Extension.swift */,
+				652C9CEC2A84E69100CEBE88 /* SECRETS.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		53DAEEE32D527649007C05BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		53DAEEE42D527651007C05BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				654EA62629EADD9900D27B21 /* LaunchView.swift */,
+				65E02A412A16483B00FD894E /* UploadPage.swift */,
+				65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */,
+				65075C432A599BAC009288BA /* ImageCompressionPage.swift */,
+				65ADAEC12AEABAF10039EE8F /* ShareView.swift */,
+				65E02A3B2A1645E400FD894E /* ImageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		53DAEEE52D532B57007C05BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				654EA62C29ED080000D27B21 /* ImagePicker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		654EA60529EAD21B00D27B21 = {
 			isa = PBXGroup;
 			children = (
@@ -91,22 +134,11 @@
 			children = (
 				65C73CDF29EE9D1A00B0FCE0 /* Info.plist */,
 				654EA61129EAD21B00D27B21 /* ImageCompressApp.swift */,
+				53DAEEE32D527649007C05BF /* ViewModel */,
+				53DAEEE42D527651007C05BF /* View */,
+				53DAEEE22D52757F007C05BF /* Utils */,
+				53DAEEE52D532B57007C05BF /* Model */,
 				65ADAEBB2AEA4B360039EE8F /* font */,
-				65D0E97C2AD186FF00A8FFF0 /* PurchasesDelegateHandler.swift */,
-				65D0E97E2AD1891800A8FFF0 /* UserViewModel.swift */,
-				65E02A412A16483B00FD894E /* UploadPage.swift */,
-				654EA62629EADD9900D27B21 /* LaunchView.swift */,
-				65560BD82A592ADF00D8BE87 /* SettingsSheet.swift */,
-				65075C432A599BAC009288BA /* ImageCompressionPage.swift */,
-				65ADAEC12AEABAF10039EE8F /* ShareView.swift */,
-				65E02A3B2A1645E400FD894E /* ImageCell.swift */,
-				654EA62C29ED080000D27B21 /* ImagePicker.swift */,
-				65560BDA2A5933A400D8BE87 /* CompressionFunctions.swift */,
-				65E02A3D2A16464F00FD894E /* Helper.swift */,
-				65E02A3F2A16467800FD894E /* Extension.swift */,
-				652C9CEC2A84E69100CEBE88 /* SECRETS.swift */,
-				65D0E98A2AD1972100A8FFF0 /* Helper-Bridging-Header.h */,
-				65D0E9892AD1972100A8FFF0 /* Helper.h */,
 				654EA61529EAD21B00D27B21 /* Assets.xcassets */,
 			);
 			path = ImageCompress;

@@ -17,6 +17,7 @@ struct LaunchView: View {
     @AppStorage("FIRST_TIME") var firstTime: Bool = true
     @AppStorage("EXPORT_TYPE") var exportType: String = ""
     @AppStorage("DELETE_ORIGINAL") var deleteOriginal: Bool = false
+  
 //  Image Picker
     @ObservedObject var imagePicker = ImagePicker()
 
